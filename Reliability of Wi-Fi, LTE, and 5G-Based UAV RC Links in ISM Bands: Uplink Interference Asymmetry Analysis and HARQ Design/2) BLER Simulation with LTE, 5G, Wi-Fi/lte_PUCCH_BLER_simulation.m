@@ -1,4 +1,4 @@
-%% PUCCH Format 1a baseline
+% PUCCH Format 1a baseline
 % reference example link: https://www.mathworks.com/help/lte/ug/pucch1a-ack-missed-detection-probability-conformance-test.html
 % Note: You can modify the threshold in the decoding function by stepping
 % into ltePUCCH1Decode function. The initial setting is 0.97585. 
