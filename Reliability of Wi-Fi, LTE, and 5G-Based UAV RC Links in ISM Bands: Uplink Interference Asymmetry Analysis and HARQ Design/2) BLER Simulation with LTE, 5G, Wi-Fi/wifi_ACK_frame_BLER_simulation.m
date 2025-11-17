@@ -14,16 +14,7 @@ cfgNonHT = wlanNonHTConfig('Modulation', 'OFDM');
 cfgNonHT.PSDULength = numel(ackFrameBits) / 8; 
 
 chanBW = cfgNonHT.ChannelBandwidth;
-tgaxChannel = wlanTGaxChannel;
-tgaxChannel.DelayProfile = 'Model-A';
-tgaxChannel.NumTransmitAntennas = cfgNonHT.NumTransmitAntennas;
-tgaxChannel.NumReceiveAntennas = 1;
-tgaxChannel.TransmitReceiveDistance = 5; 
-tgaxChannel.ChannelBandwidth = chanBW;
-tgaxChannel.LargeScaleFadingEffect = 'None';
-tgaxChannel.NormalizeChannelOutputs = false;
 fs = wlanSampleRate(cfgNonHT);
-tgaxChannel.SampleRate = fs;
 
 snr = linspace(0, 10, 40);
 numSNR = numel(snr); 
@@ -100,5 +91,6 @@ end
 % Convert ACK probability to Block Error Rate (BLER)
 BLER = 1 - ACK_prob_sim;
 BLER(BLER == 0) = NaN; % Avoid log(0) issues
+
 
 
