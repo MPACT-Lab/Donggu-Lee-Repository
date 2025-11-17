@@ -9,7 +9,6 @@ cfgMAC.Address1 = '0012345678AB'; % Receiver MAC address (dummy)
 ackFrameBytes = hex2dec(ackFrameHex); 
 ackFrameBits = reshape(de2bi(ackFrameBytes, 8, 'left-msb')', [], 1); 
 
-
 cfgNonHT = wlanNonHTConfig('Modulation', 'OFDM'); 
 cfgNonHT.PSDULength = numel(ackFrameBits) / 8; 
 
@@ -89,7 +88,3 @@ end
 % Convert ACK probability to Block Error Rate (BLER)
 BLER = 1 - ACK_prob_sim;
 BLER(BLER == 0) = NaN; % Avoid log(0) issues
-
-
-
-
