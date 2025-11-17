@@ -43,8 +43,6 @@ for isnr = 1:numSNR
 
         txPad = [txWaveform; zeros(50, cfgNonHT.NumTransmitAntennas)];
 
-        reset(tgaxChannel);
-
         rxWaveform = txPad;
 
         rxWaveform = awgn(rxWaveform, packetSNR);
@@ -91,6 +89,7 @@ end
 % Convert ACK probability to Block Error Rate (BLER)
 BLER = 1 - ACK_prob_sim;
 BLER(BLER == 0) = NaN; % Avoid log(0) issues
+
 
 
 
